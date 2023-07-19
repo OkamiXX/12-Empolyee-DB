@@ -9,21 +9,22 @@ const validate = require('./public/validate'); // Used to validate if str are th
 const chalk = require('chalk');
 const figlet = require('figlet');
 
-// Database Connect and Starter Title
+// Connect Database 
 connection.connect((err) => {
   if (err) throw err;
   console.log(chalk.white.bold(`====================================================================================`));
-  console.log(``);
+  console.log('');
   console.log(chalk.cyan.bold(figlet.textSync('Employee Tracker')));
-  console.log(``);
-  console.log(``);
+  console.log('');
+  console.log('');
   console.log(chalk.white.bold(`====================================================================================`));
   displayQuestions();
 });
 
 // Choices for the user.
 const displayQuestions = () => {
-  inquirer.prompt([
+  inquirer
+    .prompt([
       {
         name: 'choices',
         type: 'list',
@@ -117,7 +118,7 @@ const viewAllEmployees = () => {
 // View ALL roles
 const viewAllRoles = () => {
   console.log(chalk.whiteBright.bold(`====================================================================================`));
-  console.log(`                              ` + chalk.cyanBright.bold(`Current Employee Roles:`));
+  console.log(`                            ` + chalk.cyanBright.bold(`Current Employee Roles:`));
   console.log(chalk.whiteBright.bold(`====================================================================================`));
   const sql =     `SELECT role.id, role.title, department.department_name AS department
                   FROM role

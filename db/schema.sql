@@ -1,7 +1,9 @@
 -- Creates the database.
-DROP DATABASE IF EXISTS employees;
-CREATE DATABASE employees;
-USE employees;
+DROP DATABASE IF EXISTS employees_db;
+CREATE DATABASE employees_db;
+
+-- Use the employees_db.
+USE employees_db;
 
 -- Creates the department table.
 CREATE TABLE department (
@@ -13,7 +15,7 @@ CREATE TABLE department (
 CREATE TABLE role (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(30) NOT NULL,
-    salary DECIMAL(10, 2) NOT NULL,
+    salary INT NOT NULL,
     department_id INTEGER
 );
 
